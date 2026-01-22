@@ -1,9 +1,10 @@
-import { Page, Stagehand } from "@browserbasehq/stagehand";
+import { Stagehand } from "@browserbasehq/stagehand";
 import {
   setWorldConstructor,
   setDefaultTimeout,
   World,
 } from "@cucumber/cucumber";
+import { Page } from "playwright-core";
 
 export class CustomWorld extends World {
   stagehand!: Stagehand;

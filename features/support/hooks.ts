@@ -1,24 +1,23 @@
 import { After, AfterStep, Before, Status } from "@cucumber/cucumber";
 import { CustomWorld } from "./world";
-import { createStagehand } from "@/repositories";
+import { BrowserSession } from "@/core/BrowserSession";
+
+let session: BrowserSession;
 
 Before(async function (this: CustomWorld) {
-  const stagehand = createStagehand();
-  await stagehand.init();
+  session = await BrowserSession.create();
 
-  const [page] = stagehand.context.pages();
-  this.stagehand = stagehand;
-  this.page = page;
+  this.stagehand = session.stagehand;
+  this.page = session.page;
 });
 
-AfterStep(async function ({ result }) {
+AfterStep(async function (this: CustomWorld, { result }) {
   if (result.status === Status.FAILED) {
-    this.attach(await this.page.screenshot({ type: "png" }), "image/png");
+    const screenshot = await this.page.screenshot({ type: "png" });
+    this.attach(screenshot, "image/png");
   }
 });
 
-After(async function (this: CustomWorld) {
-  if (this.stagehand) {
-    await this.stagehand.close();
-  }
+After(async function () {
+  if (session) await session.close();
 });

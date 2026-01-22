@@ -14,22 +14,19 @@ importers:
       '@cucumber/cucumber':
         specifier: 12.5.0
         version: 12.5.0
-      dotenv:
-        specifier: 16.4.5
-        version: 16.4.5
       zod:
         specifier: 4.2.0
         version: 4.2.0
     devDependencies:
-      '@playwright/test':
-        specifier: 1.57.0
-        version: 1.57.0
       '@tsconfig/node22':
         specifier: 22.0.5
         version: 22.0.5
       '@types/node':
         specifier: 25.0.6
         version: 25.0.6
+      playwright-core:
+        specifier: 1.57.0
+        version: 1.57.0
       prettier:
         specifier: 3.7.4
         version: 3.7.4
@@ -37,7 +34,7 @@ importers:
         specifier: 10.9.2
         version: 10.9.2(@types/node@25.0.6)(typescript@5.9.3)
       tsconfig-paths:
-        specifier: ^4.2.0
+        specifier: 4.2.0
         version: 4.2.0
       typescript:
         specifier: 5.9.3
@@ -305,11 +302,6 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
-
-  '@playwright/test@1.57.0':
-    resolution: {integrity: sha512-6TyEnHgd6SArQO8UO2OMTxshln3QMWBtPGrOCgs3wVEmQmwyuNtB10IZMfmYDE0riwNR1cu4q+pPcxMVtaG3TA==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   '@puppeteer/browsers@2.3.0':
     resolution: {integrity: sha512-ioXoq9gPxkss4MYhD+SFaU9p1IHFUX0ILAWFPyjGaBdjLsYAlZw6j1iLA0N/m12uVHLFDfSYNF7EQccjinIMDA==}
@@ -2278,10 +2270,6 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@playwright/test@1.57.0':
-    dependencies:
-      playwright: 1.57.0
-
   '@puppeteer/browsers@2.3.0':
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
@@ -3378,6 +3366,7 @@ snapshots:
       playwright-core: 1.57.0
     optionalDependencies:
       fsevents: 2.3.2
+    optional: true
 
   prettier@3.7.4: {}
 
